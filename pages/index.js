@@ -1,88 +1,104 @@
-import React from 'react'
-import Head from 'next/head'
-import Nav from '../components/nav'
+import React, { useState } from 'react'
+import Container from '@material-ui/core/Container'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button'
+import Link from '@material-ui/core/Link'
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import FsLightbox from 'fslightbox-react';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Paper from '@material-ui/core/Paper';
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+import data from "../data.json"
 
-    <Nav />
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    toolbar: {
+        minHeight: 128,
+        alignItems: 'flex-start',
+        paddingTop: theme.spacing(1),
+        paddingBottom: theme.spacing(2),
+    },
+    title: {
+        flexGrow: 1,
+        alignSelf: 'flex-end',
+    },
+    card: {
+        minWidth: 184,
+        maxWidth: 184,
+    },
+    media: {
+        height: 184,
+        backgroundPositionY: "0%"
+    },
 
-    <div className="hero">
-      <h1 className="title">Welcome to Next.js!</h1>
-      <p className="description">
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+}));
+export default function Index() {
+    const classes = useStyles();
 
-      <div className="row">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
-        </a>
-      </div>
-    </div>
+    const [lightboxController, setLightboxController] = useState({
+        toggler: false,
+        slide: 1
+    });
 
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
-)
+    function openLightboxOnSlide(number) {
+        setLightboxController({
+            toggler: !lightboxController.toggler,
+            slide: number+1
+        });
+    }
 
-export default Home
+    return (
+        <div className={classes.root}>
+            <AppBar position="sticky">
+                <Toolbar className={classes.toolbar}>
+                    <Typography className={classes.title} variant="h5" noWrap>
+                        Kuroshi's Corner
+                    </Typography>
+                    <Link href="https://kode54.net/" color="inherit">
+                        <Button color="inherit">Main website</Button>
+                    </Link>
+                    <Link href="https://keybase.io/kode54" color="inherit">
+                        <Button color="inherit">Keybase profile</Button>
+                    </Link>
+                </Toolbar>
+            </AppBar>
+            <Box py={3}>
+                <Container>
+                    <Paper>
+                        <Box p={2} mb={2}>
+                            <Typography>I am Kuroshi. You may also know me as kode54, or Chris Moeller, or my real name, Christopher Snowhill. My character is a literal tuxedo cat, with a tuxedo fur pattern in black and white, with cuff forepaws, and shirt and buttons chest pattern. I came up with this idea for a character with the acquisition of two lovely tuxedo cats, who brighten up my family’s daily life and have been with us since December of 2013.</Typography>
+                        </Box>
+
+                    </Paper>
+                    <Box display="flex" flexWrap="wrap" justifyContent="center" >
+                        {data.map((image,index) => (
+                            <Card key={image.thumb} className={classes.card}>
+                                <CardActionArea onClick={(e)=> {console.log(e); openLightboxOnSlide(index);}}>
+                                    <CardMedia
+                                        className={classes.media}
+                                        image={"https://kuroshi.moe/" + image.thumb} />
+                                    <CardContent>
+                                        <Typography component="p">{image.caption}</Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        ))}
+                    </Box>
+                </Container>
+            </Box>
+
+            <FsLightbox toggler={lightboxController.toggler} sources={data.map(ix=>"https://kuroshi.moe/"+ix.image)} slide={lightboxController.slide} />
+        </div>
+    );
+}
