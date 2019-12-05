@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -13,6 +14,9 @@ import FsLightbox from 'fslightbox-react';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Paper from '@material-ui/core/Paper';
+import Hidden from '@material-ui/core/Hidden';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import data from "../data.json"
 
@@ -23,15 +27,8 @@ const useStyles = makeStyles(theme => ({
     menuButton: {
         marginRight: theme.spacing(2),
     },
-    toolbar: {
-        minHeight: 128,
-        alignItems: 'flex-start',
-        paddingTop: theme.spacing(1),
-        paddingBottom: theme.spacing(2),
-    },
     title: {
-        flexGrow: 1,
-        alignSelf: 'flex-end',
+        flexGrow: 1
     },
     card: {
         minWidth: 184,
@@ -50,11 +47,21 @@ export default function Index() {
         toggler: false,
         slide: 1
     });
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = event => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
 
     function openLightboxOnSlide(number) {
         setLightboxController({
             toggler: !lightboxController.toggler,
-            slide: number+1
+            slide: number + 1
         });
     }
 
@@ -65,12 +72,31 @@ export default function Index() {
                     <Typography className={classes.title} variant="h5" noWrap>
                         Kuroshi's Corner
                     </Typography>
-                    <Link href="https://kode54.net/" color="inherit">
-                        <Button color="inherit">Main website</Button>
-                    </Link>
-                    <Link href="https://keybase.io/kode54" color="inherit">
-                        <Button color="inherit">Keybase profile</Button>
-                    </Link>
+                    <Hidden xsDown>
+                        <Link href="https://kode54.net/" color="inherit">
+                            <Button color="inherit">Main website</Button>
+                        </Link>
+                        <Link href="https://keybase.io/kode54" color="inherit">
+                            <Button color="inherit">Keybase profile</Button>
+                        </Link>
+                    </Hidden>
+                    <Hidden smUp>
+                        <Button color="inherit" aria-controls="menu" aria-haspopup="true" onClick={handleClick}>Menu</Button>
+                        <Menu
+                            id="menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <Link href="https://kode54.net" color="inherit">
+                                <MenuItem onClick={handleClose}>Main website</MenuItem>
+                            </Link>
+                            <Link href="https://keybase.io/kode54" color="inherit">
+                                <MenuItem onClick={handleClose}>Keybase profile</MenuItem>
+                            </Link>
+                        </Menu>
+                    </Hidden>
                 </Toolbar>
             </AppBar>
             <Box py={3}>
@@ -82,23 +108,26 @@ export default function Index() {
 
                     </Paper>
                     <Box display="flex" flexWrap="wrap" justifyContent="center" >
-                        {data.map((image,index) => (
-                            <Card key={image.thumb} className={classes.card}>
-                                <CardActionArea onClick={(e)=> {console.log(e); openLightboxOnSlide(index);}}>
-                                    <CardMedia
-                                        className={classes.media}
-                                        image={"https://kuroshi.moe/" + image.thumb} />
-                                    <CardContent>
-                                        <Typography component="p">{image.caption}</Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
+                        {data.map((image, index) => (
+                            <Box m={0.25} key={index}>
+                                <Card className={classes.card}>
+                                    <CardActionArea onClick={(e) => { console.log(e); openLightboxOnSlide(index); }}>
+                                        <CardMedia
+                                            className={classes.media}
+                                            image={"https://kuroshi.moe/" + image.thumb} />
+                                        <CardContent>
+                                            <Typography color="textSecondary" gutterBottom>{image.date}</Typography>
+                                            <Typography component="p">{image.caption}</Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </Box>
                         ))}
                     </Box>
                 </Container>
             </Box>
 
-            <FsLightbox toggler={lightboxController.toggler} sources={data.map(ix=>"https://kuroshi.moe/"+ix.image)} slide={lightboxController.slide} />
+            <FsLightbox toggler={lightboxController.toggler} sources={data.map(ix => "https://kuroshi.moe/" + ix.image)} slide={lightboxController.slide} />
         </div>
     );
 }
