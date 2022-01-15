@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
 
-import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button'
-import Link from '@material-ui/core/Link'
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import { makeStyles } from '@mui/styles';
+import Button from '@mui/material/Button'
+import Link from '@mui/material/Link'
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
 import FsLightbox from 'fslightbox-react';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Paper from '@material-ui/core/Paper';
-import Hidden from '@material-ui/core/Hidden';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Paper from '@mui/material/Paper';
+import Hidden from '@mui/material/Hidden';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 import data from "../data.json"
 
@@ -127,7 +127,7 @@ export default function Index() {
                 </Container>
             </Box>
 
-            <FsLightbox toggler={lightboxController.toggler} sources={data.map(ix => "https://kuroshi.moe/" + ix.image)} slide={lightboxController.slide} />
+            <FsLightbox toggler={lightboxController.toggler} sources={data.map(ix => ("https://kuroshi.moe/" + ix.image))} slide={lightboxController.slide} />
         </div>
     );
 }

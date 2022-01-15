@@ -1,8 +1,8 @@
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@mui/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import theme from '../src/theme';
 
 export default class KuroshiMoeGallery extends App {
