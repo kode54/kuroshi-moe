@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/kode54
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://kuroshi.moe
+  * I am kode54 (https://keybase.io/kode54) on keybase.
+  * I have a public key with fingerprint 7622 EBE7 536B 0F04 36F4  F163 8D6C 9847 9F4A DE71
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101b6aaea12f80279b1a2d3761c523fdd6f33f4273bfead67d6dfa6e76764801b150a",
+            "fingerprint": "7622ebe7536b0f0436f4f1638d6c98479f4ade71",
+            "host": "keybase.io",
+            "key_id": "8d6c98479f4ade71",
+            "kid": "0101b6aaea12f80279b1a2d3761c523fdd6f33f4273bfead67d6dfa6e76764801b150a",
+            "uid": "b1e66017a4de7344fad370fbdda00c19",
+            "username": "kode54"
+        },
+        "revoke": {
+            "sig_ids": [
+                "9a4551bcf13296cd3eb5b2239114b0f9d00319b31042237378ee55ae73eca7b10f"
+            ]
+        },
+        "service": {
+            "hostname": "kuroshi.moe",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1471715231,
+    "expire_in": 157680000,
+    "prev": "e6dc6dd7b9a9ea6181f98f89e9a00c6314af01b25ed0241f62d29cb858df5e19",
+    "seqno": 58,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.56
+Comment: https://keybase.io/crypto
+
+yMN7AnicrZJ7bBRFHMevtCi9tEgDCCnXGDfQRDjLzj5mdo8KQsCWYgU5kSql5+7O
+TG/p3e319lpsTl5GGiwpbdCkNaCA0lAICoiSoibIQ4TysEUeKg+b43VNGoRCEU0g
+zjbyn3+6/0x25vv7fL/5zhzJTne50xpDrUWbSq5Up504eKfGtbCjZVOC0y1cx/kS
+XBUZXEgIEzseqDIx5+N4wAMdahrRgEAVXkCqDjQBiwgCQxZEijGkokglAYk6JRqG
+CENMNUgQRFBS2DCQeY3zctSMVJJYNGZG4gyLoCAQnSBZhDpPeUmEVKIAigqGhqpI
+SKWShgkCbDBo2c4EC6drNikwLbbHfgKD8f5D/z/nrhnE6YBAyAOkScxFlCSqMRRP
+dYw1njeA6ghtEotoYeJktTCRJW6Zl4uRWquKOK3aZiWLbHO+RZyqSbIMdIMCUVCh
+gUWiy7ogiCoAEmtDxTwvAlUXAS+xXSQihRBZ1pgxMTSkA55yixmb+dWaxiDc6eix
+d03MsoNmQdgiLFQ0ZsUtwwqxg2A8HrV9Tqh4XdRRLiV64F9GQDcjmF0Qm6glMdu0
+IpwPMKURNx0okBBAgNUGvBx5O2rGSMB0FDKCCs8+x4fUMiSB2IAYI13VVKJBoACq
+KlRRierUBEUgaZRVK8gE84IEKBSwoBq6IiuYymSwRptURyzOJyssp1bJmKy4iBav
+iRFu2aGD5RmuNLfriaFDnJfrcmeOePyep9c/9TBn+LD3ALDGhEuSecMOHIsnb8/d
+1ns0d943VanxpadevPeq2Fi6WfyyMVE6YmnByOC58Bbvh6Hi5PCxJ1ePbihNDmSh
+Zvyg4uyMa8FV9TMfXo0eF5syPj6X/+zQ1lMpeHp5f0P8fFuwbP6Vy+WJlLE8d+LU
+ZM+RDcbiQ3fuKD3fefwPht0Y1Xs81fv1gzVVSvCHTE/6gdX+4z1TTvd17pkt/LJg
+NPfto3miN6fEVRPdNgSBv2esKFGyOpcVzZqx57W3vJd2Nqye+0ffVOOdnT0TTnRO
+KOs+vXhOX9enDXPyU/M6vvisg79VdOZC297fzi1wHV6j7ghev3/FU7vLf99o0vcV
+vEufFj0ooSwcOrWdlz5YSS/179txohh0b2ztfi6R3OxuKNPkVd/brXmd426+kNfx
+84WVxdt/THQVHnW/3kZjaanixtkXi9YHYF5WXt8Kd2/9hlVJY0/KM/byrM+fvHf3
+/Zy6cHl4uq8i/drZ+SX5M/dnPRMY+UnfQCU5OY2OObYITabrW5pvToZN637yTxle
+ffWWuoT+2Z7vv1hsDzyfhLnrLk2r+Oql/vatlRV86HqhD/0KffNDu35fIt8wJnHV
+Hv/A3YJc5NtZ/8rarXW3zY7Cy4eN7Ekzx7VF9+5/uSN70/lT3W9sGXtgI9renvHm
+R+kTd9fvHiU2d2UWnyHXW8Y/Krp6+K81/wAmCtc6
+=lbY/
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kode54
+
+==================================================================
+
