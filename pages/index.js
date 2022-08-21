@@ -114,7 +114,7 @@ export default function Index() {
                                     <CardActionArea onClick={(e) => { console.log(e); openLightboxOnSlide(index); }}>
                                         <CardMedia
                                             className={classes.media}
-                                            image={"https://kuroshi.moe/" + image.thumb} />
+                                            image={"/" + image.thumb} />
                                         <CardContent>
                                             <Typography color="textSecondary" gutterBottom>{image.date}</Typography>
                                             <Typography component="p">{image.caption}</Typography>
@@ -127,7 +127,7 @@ export default function Index() {
                 </Container>
             </Box>
 
-            <FsLightbox toggler={lightboxController.toggler} sources={data.map(ix => ("https://kuroshi.moe/" + ix.image))} slide={lightboxController.slide} />
+            <FsLightbox toggler={lightboxController.toggler} sources={data.map(ix => ("/" + ix.image))} slide={lightboxController.slide} />
         </div>
     );
 }
